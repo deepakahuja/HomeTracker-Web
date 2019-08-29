@@ -7,7 +7,9 @@ const Header = ({loading}) => {
   const activeStyle = { color: 'blue' };
   return (
     <nav>
-      <NavLink to="/" activeStyle={activeStyle} exact>Home</NavLink>
+      <NavLink to="/" activeStyle={activeStyle} exact>Landing</NavLink>
+      {" | "}
+      <NavLink to="/home" activeStyle={activeStyle} exact>Home</NavLink>
       {" | "}
       <NavLink to="/courses" activeStyle={activeStyle}>Courses</NavLink>
       {" | "}

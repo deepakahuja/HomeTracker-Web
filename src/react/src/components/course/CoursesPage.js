@@ -19,7 +19,7 @@ class CoursesPage extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="container-fluid">
         <h1>Courses</h1>
         <input type="submit"
                value="Add Course"
