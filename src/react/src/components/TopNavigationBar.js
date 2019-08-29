@@ -4,12 +4,12 @@ import {Nav, NavItem, NavDropdown, MenuItem} from 'react-bootstrap';
 import Navbar, {Brand} from 'react-bootstrap/lib/Navbar';
 import {Link} from 'react-router-dom';
 
-class TopHeader extends React.Component {
+class TopNavigationBar extends React.Component {
   render() {
    
     return (
-        <div fixedTop fluid>   
-        <Navbar>
+        <div fixedTop >   
+        <Navbar fluid>
             <Navbar.Header>
                 <Navbar.Brand>
                     <Link to="/">
@@ -52,4 +52,4 @@ class TopHeader extends React.Component {
 
 
 
-export default TopHeader;
+export default TopNavigationBar;

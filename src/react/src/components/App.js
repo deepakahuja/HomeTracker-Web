@@ -8,7 +8,7 @@ import ManageCoursePage from './course/ManageCoursePage'; //eslint-disable-line 
 import AboutPage from './about/AboutPage';
 import SamplePage from './sample/SamplePage';
 import LandingPage from './LandingPage';
-import TopHeader from './TopHeader';
+import TopNavigationBar from './TopNavigationBar';
 import UserSearchPage from './admin/usersearch';
 import {connect} from 'react-redux';
 
@@ -17,7 +17,7 @@ class App extends React.Component {
     
     return (
       <div className="container-fluid" >   
-        <TopHeader/>
+        <TopNavigationBar/>
                 
         <Route exact path="/" component={LandingPage}/>
         <Route path="/home" component={HomePage}/>
