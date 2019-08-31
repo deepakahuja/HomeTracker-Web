@@ -1,25 +1,60 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import Header from '../common/Header';
-import {connect} from 'react-redux';
+import {Table, Button} from 'react-bootstrap';
+import { connect } from 'react-redux';
+import * as adminActions from '../../actions/adminActions';
+import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
+import UserSearchResult from './UserSearchResult';
 
 class UserSearchPage extends React.Component {
+
+    constructor(props, context) {
+        super(props, context);
+    
+        this.callLoadUsersAction = this.callLoadUsersAction.bind(this);
+      }
+    
+    callLoadUsersAction() {
+        //event.preventDefault();
+        this.props.actions.loadUsers();
+    }
+
+    componentWillMount(){
+        this.props.actions.cleanState();
+    }
+
+   
+
     render() {
         return (
-            <div className="jumbotron">
-                <Header loading={this.props.loading}/>
-                <h1>Pluralsight Administration</h1>
-                <p>React, Redux and React Router in ES6 for ultra-responsive web apps.</p>
-                <Link to="about" className="btn btn-primary btn-lg">Learn more</Link>
+            <div className="container-fluid">
+                <Button bsStyle="primary" bsSize="large" onClick={this.callLoadUsersAction}>
+                    Load Users
+                </Button>
+                <UserSearchResult users={this.props.users}/>
+      
             </div>
         );
     }
 }
-
+UserSearchPage.propTypes = {
+    users: PropTypes.array.isRequired
+  };
+  
 function mapStateToProps(state, ownProps) {
     return {
-      loading: state.ajaxCallsInProgress > 0
+      users: state.users.users
     };
-}
+  }
 
-export default connect(mapStateToProps)(UserSearchPage);
+  
+
+  function mapDispatchToProps(dispatch) {
+    return {
+      actions: bindActionCreators(adminActions, dispatch)
+    };
+  }
+
+ 
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserSearchPage);
