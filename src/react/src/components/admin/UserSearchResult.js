@@ -11,23 +11,21 @@ const UserSearchResult = ({users}) => {
         <Table striped bordered condensed hover>
         <thead>
             <tr>
-                <th>Email</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Username</th>
+                <th>Name</th>
                 <th>Phone</th>
+                <th>Email</th>
                 <th>Client</th>
+                <th>Creation Date</th>                
             </tr>
         </thead>
         <tbody>
         {users.map(user =>
           <tr>
-            <td>{user.email}</td>
-            <td>{user.firstName}</td>
-            <td>{user.lastName}</td>
-            <td>{user.firstName+" "+user.lastName}</td>
+            <td>{user.name}</td>
             <td>{user.phone}</td>
-            <td>{user.fkAdminClients.clientName}</td>
+            <td>{user.email}</td>
+            <td>{user.client}</td>            
+            <td>{user.creationDate}</td>
         </tr>
         )}
         </tbody>
